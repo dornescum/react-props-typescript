@@ -23,7 +23,8 @@ const AddToList: React.FC<IProps> = ({people, setPeople}) => {
         setPeople([
             ...people, {
                 name: input.name,
-                age: parseInt(input.age),
+                // age: parseInt(input.age),
+                age: +input.age,
                 url: input.url,
                 note: input.note,
                 id: Math.random().toString()
@@ -38,16 +39,20 @@ const AddToList: React.FC<IProps> = ({people, setPeople}) => {
     }
 
     return (
-        <div className='AddToList'>
-            <input type="text" placeholder='Name' className='AddToList-input' value={input.name} onChange={handleChange}
-                   name='name'/>
-            <input type="number" placeholder='Age' className='AddToList-input' value={input.age} onChange={handleChange}
-                   name='age'/>
-            <input type="text" placeholder='Image Url' className='AddToList-input' value={input.url}
-                   onChange={handleChange} name='url'/>
-            <textarea placeholder='Notes' className='AddToList-input' value={input.note} onChange={handleChange}
-                      name='note'/>
-            <button className='AddToList-btn' onClick={handleClick}>Add to list</button>
+        <div className='flex items-center justify-center flex-col mt-8'>
+            <div className='w-full md:w-3/5 flex flex-col '>
+                <input type="text" placeholder='Name' className='py-2 mx-4 md:mx-0 md:pl-2 border mt-4' value={input.name} onChange={handleChange}
+                       name='name'/>
+                <input type="number" placeholder='Age' className='py-2 mx-4 md:mx-0 md:pl-2 border mt-4' value={input.age} onChange={handleChange}
+                       name='age'/>
+                <input type="text" placeholder='Image Url' className='py-2 mx-4 md:mx-0 md:pl-2 border mt-4' value={input.url}
+                       onChange={handleChange} name='url'/>
+                <textarea placeholder='Notes' className='py-2 mx-4 md:mx-0 md:pl-2 border mt-4' value={input.note} onChange={handleChange}
+                          name='note'/>
+                <button className='py-4 bg-gray-300 text-white mt-8' onClick={handleClick}>Add to list</button>
+            </div>
+
+
         </div>
     );
 };
